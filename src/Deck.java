@@ -1,6 +1,7 @@
 /**
  * Created by Teacher on 1/7/2019.
  */
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -48,7 +49,12 @@ public class Deck {
      * @return true if this deck is empty, false otherwise.
      */
     public boolean isEmpty() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if(size()==0){
+		    return true;/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        }
+        else{
+            return false;
+        }
     }
 
     /**
@@ -56,7 +62,7 @@ public class Deck {
      * @return the number of undealt cards in this deck.
      */
     public int size() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return cards.size();/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
     }
 
     /**
@@ -64,7 +70,7 @@ public class Deck {
      * and reset the size to represent the entire deck.
      */
     public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		Collections.shuffle(cards);/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
     }
 
     /**
