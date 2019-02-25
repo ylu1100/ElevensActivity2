@@ -16,6 +16,7 @@ public class Deck {
      * cards contains all the cards in the deck.
      */
     private List<Card> cards;
+    private List<Card>dealtcards;
 
     /**
      * size is the number of not-yet-dealt cards.
@@ -23,6 +24,8 @@ public class Deck {
      * The next card to be dealt is at size - 1.
      */
     private int size;
+
+
 
 
     /**
@@ -34,14 +37,14 @@ public class Deck {
      * @param values is an array containing all of the card point values.
      */
     public Deck(String[] ranks, String[] suits, int[] values) {
-		cards=new ArrayList<>();
-		for(int i = 0;i<ranks.length;i++){
-		    for(int x = 0;x<suits.length;x++){
-		        cards.add(new Card(ranks[i],suits[x],values[i]));
-                }
+       dealtcards=new ArrayList<Card>();
+        cards=new ArrayList<Card>();
+        for(int i = 0;i<ranks.length;i++){
+            for(int x = 0;x<suits.length;x++){
+                cards.add(new Card(ranks[i],suits[x],values[i]));
             }
-            this.size=cards.size();
         }
+    }
 
 
     /**
@@ -49,8 +52,8 @@ public class Deck {
      * @return true if this deck is empty, false otherwise.
      */
     public boolean isEmpty() {
-		if(size()==0){
-		    return true;/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        if(size()==0){
+            return true;/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
         }
         else{
             return false;
@@ -62,7 +65,7 @@ public class Deck {
      * @return the number of undealt cards in this deck.
      */
     public int size() {
-		return cards.size();/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        return cards.size();/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
     }
 
     /**
@@ -70,7 +73,7 @@ public class Deck {
      * and reset the size to represent the entire deck.
      */
     public void shuffle() {
-		Collections.shuffle(cards);/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+        /* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
     }
 
     /**
@@ -79,7 +82,14 @@ public class Deck {
      *         previously dealt.
      */
     public Card deal() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        if(size()>0){
+            dealtcards.add(cards.get(cards.size()-1));
+            cards.remove(cards.size()-1);
+            return dealtcards.get(dealtcards.size()-1);/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        }
+        else{
+            return null;
+        }
     }
 
     /**
@@ -89,7 +99,6 @@ public class Deck {
     @Override
     public String toString() {
         String rtn = "size = " + size + "\nUndealt cards: \n";
-
         for (int k = size - 1; k >= 0; k--) {
             rtn = rtn + cards.get(k);
             if (k != 0) {
@@ -117,4 +126,3 @@ public class Deck {
         return rtn;
     }
 }
-
