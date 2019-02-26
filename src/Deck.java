@@ -44,6 +44,7 @@ public class Deck {
                 cards.add(new Card(ranks[i],suits[x],values[i]));
             }
         }
+        size=cards.size();
     }
 
 
@@ -65,7 +66,7 @@ public class Deck {
      * @return the number of undealt cards in this deck.
      */
     public int size() {
-        return cards.size();/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        return size;/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
     }
 
     /**
