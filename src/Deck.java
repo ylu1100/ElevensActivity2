@@ -84,10 +84,15 @@ public class Deck {
         }
         Card chosencard;
         for(int i = 0;i<cards.size();i++){
-            chosencard=cards.get((int)(Math.random())*(cards.size()-1))
+            chosencard=cards.get((int)(Math.random())*(cards.size()-1));
             shuffledeck.set(i,chosencard);
-            cards.remove(new Card (chosencard));/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+            cards.remove(chosencard);/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
         }
+        for(int i = 0;i<shuffledeck.size();i++){
+            cards.add(shuffledeck.get(i));
+            shuffledeck.remove(i);
+        }
+        size=cards.size();
     }
 
     /**
