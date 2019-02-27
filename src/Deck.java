@@ -55,7 +55,7 @@ public class Deck {
      * @return true if this deck is empty, false otherwise.
      */
     public boolean isEmpty() {
-        if(size()==0){
+        if(cards.size()==0){
             return true;/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
         }
         else{
@@ -101,7 +101,7 @@ public class Deck {
      *         previously dealt.
      */
     public Card deal() {
-        if(size()>0){
+        if(isEmpty()==false){
             dealtcards.add(cards.get(cards.size()-1));
             cards.remove(cards.size()-1);
             return dealtcards.get(dealtcards.size()-1);/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
