@@ -84,7 +84,7 @@ public class Deck {
         }
         Card chosencard;
         for(int i = 0;i<cards.size();i++){
-            chosencard=cards.get((int)(Math.random())*(cards.size()-1));
+            chosencard=cards.get((int)(Math.random())*(cards.size()));
             shuffledeck.set(i,chosencard);
             cards.remove(chosencard);/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
         }
